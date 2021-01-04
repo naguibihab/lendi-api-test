@@ -1,0 +1,84 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: loan-application
+  description: My cool app
+basePath: /api/v1
+tags:
+  - name: Applications
+    description: Simple endpoints
+  - name: Specification
+    description: The swagger API specification
+
+consumes:
+  - application/json
+produces:
+  - application/json
+
+
+definitions:
+  ApplicationBody:
+    type: object
+    title: application
+    required:
+      - applicant_first_name
+      - applicant_last_name
+      - loan_amount
+    properties:
+      applicant_first_name:
+        type: string
+        example: Martin
+      applicant_last_name:
+        type: string
+        example: Flower
+      loan_amount:
+        type: number
+        example: 100000
+
+paths:
+  /applications:
+    get:
+      tags:
+        - Applications
+      description: Fetch all applications
+      responses:
+        200:
+          description: Returns all applications
+    post:
+      tags:
+        - Applications
+      description: Create a new application
+      parameters:
+        - name: application
+          in: body
+          description: an application
+          required: true
+          schema:
+            $ref: "#/definitions/ApplicationBody"
+      responses:
+        200:
+          description: Returns all applications
+
+  /applications/{id}:
+    get:
+      tags:
+        - Applications
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The id of the application to retrieve
+          type: integer
+      responses:
+        200:
+          description: Return the application with the specified id
+        404:
+          description: Application not found
+
+  /spec:
+    get:
+      tags:
+        - Specification
+      responses:
+        200:
+          description: Return the API specification
