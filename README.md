@@ -2,33 +2,6 @@
 
 ## Get Started
 
-- [Express.js](http://www.expressjs.com) - Fast, unopinionated
-  , minimalist web framework for Node.js
-- [Babel.js](https://babeljs.io/) - Use new syntax, right now without waiting for support
-- [Pino](https://github.com/pinojs/pino) - Extremely fast node.js logger, inspired by Bunyan. It also includes a shell utility to pretty-print its log files
-- [dotenv](https://github.com/motdotla/dotenv) - Loads environment variables from .env for nodejs projects
-- [ESLint](http://eslint.org/) - a pluggable linting utility for JavaScript and JSX
-- [Prettier](https://github.com/prettier/prettier) - Prettier is an opinionated code formatter
-- [Swagger](http://swagger.io/) - is a simple yet powerful representation of your RESTful API
-- [SwaggerUI](http://swagger.io/) - dynamically generate beautiful documentation and sandbox from a Swagger-compliant API
-
-### API Validation
-
-Simply describe your APIs with Swagger and automatically get:
-
-- API request validation
-- Interactive documentation
-
-### Structured Logging
-
-Structured logging out of the box!
-
-### How to modify the API
-
-There are two key files that enable you to customize and describe loan application API:
-1. `server/routes.js` - This references the implementation of all of your routes. Add as many routes as you like and point each route your express handler functions.
-2. `server/common/api.yaml` - This file contains your [OpenAPI spec](https://swagger.io/specification/). Describe your API here. It's recommended that you to declare any and all validation logic in this YAML. `express-no-stress-typescript`  uses [express-openapi-validator](https://github.com/cdimascio/express-openapi-validator) to automatically handle all API validation based on what you've defined in the spec.
-
 Get started developing...
 
 ```shell
@@ -127,17 +100,6 @@ Fix all prettier linter errors
 npm run lint
 ```
 
-### Use Yarn
 
-```
-# run in development mode
-yarn run dev
 
-# run in production mode
-yarn run compile
-yarn start
-
-# test
-yarn test
-```
-
+   

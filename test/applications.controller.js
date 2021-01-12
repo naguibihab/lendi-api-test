@@ -4,9 +4,6 @@ import Server from '../server';
 
 const expect = chai.expect;
 
-// chai assertion library documentation - https://www.chaijs.com/guide/styles/
-// mocha testing framework documentation - https://mochajs.org/#getting-started
-
 describe('Applications', () => {
   it('should get all applications', () =>
     request(Server)

@@ -1,4 +1,4 @@
-import ApplicationsService from '../../services/applications.service.js';
+import ApplicationsService from '../../services/applications.service';
 
 export class Controller {
   all(req, res) {

@@ -6,7 +6,7 @@ info:
 basePath: /api/v1
 tags:
   - name: Applications
-    description: Simple endpoints
+    description: Simple example endpoints
   - name: Specification
     description: The swagger API specification
 
@@ -53,7 +53,7 @@ paths:
           in: body
           description: an application
           required: true
-          schema:
+          schema: 
             $ref: "#/definitions/ApplicationBody"
       responses:
         200:

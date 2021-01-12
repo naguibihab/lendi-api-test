@@ -1,10 +1,10 @@
 import middleware from 'swagger-express-middleware';
 import * as path from 'path';
-import errorHandler from '../api/middlewares/error.handler.js';
-const __dirname = process.cwd();
+import errorHandler from '../api/middlewares/error.handler';
+
 export default function(app, routes) {
   return new Promise((resolve, reject) => {
-    middleware(path.join('./dist/common', 'api.yml'), app, (err, mw) => {
+    middleware(path.join(__dirname, 'api.yml'), app, (err, mw) => {
       if (err) {
         return reject(err);
       }
