@@ -5,12 +5,13 @@ import * as http from 'http';
 import * as os from 'os';
 import cookieParser from 'cookie-parser';
 
-import oas from './swagger';
+import oas from './swagger.js';
 
-import l from './logger';
+import l from './logger.js';
 
 const app = new Express();
 const exit = process.exit;
+const __dirname = process.cwd();
 
 export default class ExpressServer {
   constructor() {

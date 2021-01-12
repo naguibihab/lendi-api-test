@@ -1,5 +1,5 @@
-import l from '../../common/logger';
-import db from './applications.db.service';
+import l from '../../common/logger.js';
+import db from './applications.db.service.js';
 
 class ApplicationsService {
   all() {
