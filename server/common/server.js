@@ -7,7 +7,7 @@ import cookieParser from 'cookie-parser';
 
 import oas from './swagger';
 
-import l from './logger';
+import logger from './logger';
 
 const app = new Express();
 const exit = process.exit;
@@ -35,7 +35,7 @@ export default class ExpressServer {
 
   listen(port = process.env.PORT) {
     const welcome = p => () =>
-      l.info(
+      logger.info(
         `up and running in ${process.env.NODE_ENV ||
           'development'} @: ${os.hostname()} on port: ${p}}`
       );
