@@ -1,19 +1,23 @@
-import l from '../../common/logger';
-import db from './applications.db.service';
+import l from "../../common/logger";
+import db from "./applications.db.service";
 
 class ApplicationsService {
-  all() {
+  async all() {
     l.info(`${this.constructor.name}.all()`);
-    return db.all();
+    return await db.all();
   }
 
-  byId(id) {
+  async byId(id) {
     l.info(`${this.constructor.name}.byId(${id})`);
-    return db.byId(id);
+    const response = await db.byId(id);
+
+    return response;
   }
 
-  create(application) {
-    return db.insert(application);
+  async create(application) {
+    const response = await db.insert(application);
+
+    return response;
   }
 }
 
