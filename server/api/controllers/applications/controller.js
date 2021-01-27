@@ -2,7 +2,12 @@ import ApplicationsService from "../../services/applications.service";
 
 export class Controller {
   async all(req, res) {
-    await ApplicationsService.all().then((r) => res.json(r));
+    try {
+      const applications = await ApplicationsService.all();
+      res.json(applications);
+    } catch (error) {
+      res.status(500).send({ error });
+    }
   }
 
   async byId(req, res) {
@@ -19,12 +24,13 @@ export class Controller {
   async create(req, res) {
     const application = req.body;
 
-    const result = await ApplicationsService.create(application);
+    try {
+      const result = await ApplicationsService.create(application);
 
-    res
-      .status(201)
-      .location(`/api/v1/applications/${r.id}`)
-      .json(result);
+      res.status(201).json(result);
+    } catch (error) {
+      res.status(500).send({ error });
+    }
   }
 }
 export default new Controller();

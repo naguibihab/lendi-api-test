@@ -3,7 +3,7 @@ import request from "supertest";
 import Server from "../server";
 
 const expect = chai.expect;
-
+console.log(Server);
 describe("Applications", () => {
   it("should get all applications", () =>
     request(Server)

@@ -33,20 +33,21 @@ export default class ExpressServer {
     return this;
   }
 
-  async listen(port = process.env.PORT) {
+  listen(port = process.env.PORT) {
     const welcome = (p) => () =>
       l.info(
         `up and running in ${process.env.NODE_ENV ||
           "development"} @: ${os.hostname()} on port: ${p}}`
       );
 
-    try {
-      await oas(app, this.routes);
-      http.createServer(app).listen(port, welcome(port));
-    } catch (error) {
-      l.error(e);
-      exit(1);
-    }
+    oas(app, this.routes)
+      .then(() => {
+        http.createServer(app).listen(port, welcome(port));
+      })
+      .catch((e) => {
+        l.error(e);
+        exit(1);
+      });
 
     return app;
   }

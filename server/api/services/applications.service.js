@@ -9,11 +9,15 @@ class ApplicationsService {
 
   async byId(id) {
     l.info(`${this.constructor.name}.byId(${id})`);
-    return await db.byId(id);
+    const response = await db.byId(id);
+
+    return response;
   }
 
   async create(application) {
-    return await db.insert(application);
+    const response = await db.insert(application);
+
+    return response;
   }
 }
 
